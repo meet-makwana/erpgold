@@ -1,0 +1,20 @@
+[project]
+name = "erpgold"
+authors = [
+    { name = "Meet Makwana", email = "makwanameet20@gmail.com"}
+]
+description = "ERP Gold is a comprehensive and cutting-edge enterprise resource planning (ERP) software designed to streamline and optimize business operations across various departments. With its powerful features and intuitive interface, ERP Gold empowers organizations to enhance productivity, reduce costs, and make informed strategic decisions."
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # "frappe~=15.0.0" # Installed and managed by bench.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+# These dependencies are only installed when developer mode is enabled
+[tool.bench.dev-dependencies]
+# package_name = "~=1.1.0"

@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-02-28 14:18:16.782672",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "audit_date",
+  "total_items_in_stock",
+  "total_not_found_items",
+  "total_not_in_stock_items",
+  "scan_barcode",
+  "stock_item",
+  "not_in_stock",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "audit_date",
+   "fieldtype": "Date",
+   "label": "Audit Date"
+  },
+  {
+   "fieldname": "total_items_in_stock",
+   "fieldtype": "Float",
+   "label": "Total Items in Stock"
+  },
+  {
+   "fieldname": "total_not_found_items",
+   "fieldtype": "Float",
+   "label": "Total Not Found Items"
+  },
+  {
+   "fieldname": "total_not_in_stock_items",
+   "fieldtype": "Float",
+   "label": "Total Not In Stock Items"
+  },
+  {
+   "fieldname": "scan_barcode",
+   "fieldtype": "Data",
+   "label": "Scan Barcode",
+   "options": "Barcode"
+  },
+  {
+   "fieldname": "not_in_stock",
+   "fieldtype": "Table",
+   "label": "Not in Stock",
+   "options": "Not in Stock"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Stock Audit",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "stock_item",
+   "fieldtype": "Table",
+   "label": "Stock Item",
+   "options": "Stock Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-03-01 10:43:51.065774",
+ "modified_by": "Administrator",
+ "module": "ERPGold",
+ "name": "Stock Audit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-02-28 14:53:11.709594",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "scheme_name",
+  "enroll_date",
+  "scheme_type",
+  "scheme_tenure",
+  "scheme_end_date",
+  "installment_amount",
+  "calculate_due_dates",
+  "installment_details",
+  "amount_installment_details",
+  "total_investment",
+  "total_due",
+  "total_overdue",
+  "total_paid_amount",
+  "status",
+  "company",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "scheme_name",
+   "fieldtype": "Data",
+   "label": "Scheme Name"
+  },
+  {
+   "fieldname": "enroll_date",
+   "fieldtype": "Data",
+   "label": "Enroll Date"
+  },
+  {
+   "fieldname": "scheme_type",
+   "fieldtype": "Data",
+   "label": "Scheme Type"
+  },
+  {
+   "fieldname": "scheme_tenure",
+   "fieldtype": "Data",
+   "label": "Scheme Tenure"
+  },
+  {
+   "fieldname": "scheme_end_date",
+   "fieldtype": "Data",
+   "label": "Scheme End Date"
+  },
+  {
+   "fieldname": "installment_amount",
+   "fieldtype": "Data",
+   "label": "Installment Amount"
+  },
+  {
+   "fieldname": "calculate_due_dates",
+   "fieldtype": "Data",
+   "label": "Calculate Due Dates"
+  },
+  {
+   "fieldname": "installment_details",
+   "fieldtype": "Data",
+   "label": "Installment Details"
+  },
+  {
+   "fieldname": "amount_installment_details",
+   "fieldtype": "Data",
+   "label": "Amount Installment Details"
+  },
+  {
+   "fieldname": "total_investment",
+   "fieldtype": "Data",
+   "label": "Total investment"
+  },
+  {
+   "fieldname": "total_due",
+   "fieldtype": "Data",
+   "label": "Total Due"
+  },
+  {
+   "fieldname": "total_overdue",
+   "fieldtype": "Data",
+   "label": "Total Overdue"
+  },
+  {
+   "fieldname": "total_paid_amount",
+   "fieldtype": "Data",
+   "label": "Total Paid Amount"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gold Scheme Allocation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-02-28 15:28:10.014060",
+ "modified_by": "Administrator",
+ "module": "ERPGold",
+ "name": "Gold Scheme Allocation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

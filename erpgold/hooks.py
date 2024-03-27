@@ -5,6 +5,19 @@ app_description = "ERP Gold is a comprehensive and cutting-edge enterprise resou
 app_email = "makwanameet20@gmail.com"
 app_license = "MIT"
 
+
+
+
+fixtures = [
+    {
+    "dt": ("Custom Field"), 
+        "filters": [["dt", "in", ("Item","Sales Invoice","Sales Invoice Item","Sales Order","Sales Order Item","Sales Order","Sales Order Item","Delivery Note","Delivery Note Item","Purchase Invoice","Purchase Invoice Item","Purchase Receipts","Purchase Rececipts Item","Purchase Order","Purchase Order Item","Stock Entry","Stock Entry Detail","Serial No","Payment Entry","Customer")]]
+    }
+    
+]
+app_include_js=[
+    "/assets/erpgold/js/barcode_scan.js"
+]
 # Includes in <head>
 # ------------------
 
@@ -27,7 +40,8 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Sales Invoice" : ["public/js/sales_invoice_item.js"],"Sales Order" : ["public/js/sales_order.js"],"Delivery Note" : ["public/js/delivery_note.js"],"Purchase Invoice" : ["public/js/purchase_invoice.js"],"Purchase Receipt" : ["public/js/purchase_receipt.js"],"Purchase Order" : ["public/js/purchase_order.js"],"Stock Entry" : ["public/js/stock_entry.js"],"Serial No" : ["public/js/serial_no.js"]}
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -109,20 +123,18 @@ app_license = "MIT"
 # Override standard doctype classes
 
 # override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
+# 	"PurchaseReceipt": "erpgold.serial_no_data.serial_no_data"
 # }
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Purchase Receipt": {
+		"on_submit": "erpgold.serial_no_data.on_submit"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -156,6 +168,9 @@ app_license = "MIT"
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "erpgold.event.get_events"
 # }
+# override_update_serial_nos_after_submit_method={
+#     "erpnext.update_serial_nos_after_submit_method"="erpgold.barcode.generate_serial_no"
+# }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
@@ -169,7 +184,7 @@ app_license = "MIT"
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
 # Ignore links to specified DocTypes when deleting documents
-# -----------------------------------------------------------
+# --------------------------------------------------------------------- 
 
 # ignore_links_on_delete = ["Communication", "ToDo"]
 

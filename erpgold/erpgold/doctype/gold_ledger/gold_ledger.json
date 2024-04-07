@@ -16,6 +16,7 @@
   "warehouse",
   "party_type",
   "party",
+  "column_break_joakm",
   "debit",
   "debit_gold",
   "credit",
@@ -145,12 +146,16 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "column_break_joakm",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-01 14:47:42.296904",
+ "modified": "2024-04-05 15:48:06.093685",
  "modified_by": "Administrator",
  "module": "ERPGold",
  "name": "Gold Ledger",

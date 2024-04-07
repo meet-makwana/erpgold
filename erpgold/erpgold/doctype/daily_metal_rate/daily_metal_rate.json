@@ -14,25 +14,31 @@
   {
    "fieldname": "metal_rate",
    "fieldtype": "Currency",
-   "label": "Metal Rate"
+   "in_list_view": 1,
+   "label": "Metal Rate",
+   "reqd": 1
   },
   {
    "fieldname": "metal_type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Metal Type",
-   "options": "Metal Type"
+   "options": "Metal Type",
+   "reqd": 1
   },
   {
    "fieldname": "purity",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Purity",
-   "options": "Purity"
+   "options": "Purity",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-06 10:26:22.089653",
+ "modified": "2024-04-02 16:47:11.183802",
  "modified_by": "Administrator",
  "module": "ERPGold",
  "name": "Daily Metal Rate",

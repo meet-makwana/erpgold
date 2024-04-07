@@ -16,5 +16,5 @@ def query(metal_type, purity, date):
 						 FROM `tabDaily Metal Rate` AS dmr
 						 INNER JOIN `tabMetal Rate` AS mr
 						 ON dmr.parent = mr.name
-						 WHERE metal_type = %s AND purity = %s AND mr.date = %s
+						 WHERE mr.docstatus = '1' AND metal_type = %s AND purity = %s AND mr.date = %s
 						 """, (metal_type, purity, date))

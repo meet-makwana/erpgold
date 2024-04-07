@@ -12,12 +12,14 @@ fixtures = [
     {
     "dt": ("Custom Field"), 
         "filters": [["dt", "in", ("Item","Sales Invoice","Sales Invoice Item","Sales Order","Sales Order Item","Sales Order","Sales Order Item","Delivery Note","Delivery Note Item","Purchase Invoice","Purchase Invoice Item","Purchase Receipts","Purchase Rececipts Item","Purchase Order","Purchase Order Item","Stock Entry","Stock Entry Detail","Serial No","Payment Entry","Customer")]]
-    }
+    },
+    
     
 ]
 app_include_js=[
     "/assets/erpgold/js/barcode_scan.js"
 ]
+
 # Includes in <head>
 # ------------------
 
@@ -132,8 +134,14 @@ doctype_js = {"Sales Invoice" : ["public/js/sales_invoice_item.js"],"Sales Order
 
 doc_events = {
 	"Purchase Receipt": {
-		"on_submit": "erpgold.serial_no_data.on_submit"
-	}
+		"on_submit": "erpgold.serial_no_data.custom_update_serial_nos_after_submit"
+	},
+    "Purchase Invoice": {
+		"on_submit": "erpgold.serial_no_data.custom_update_serial_nos_after_submit"
+	},
+    "Stock Entry": {
+		"on_submit": "erpgold.serial_no_data.custom_update_serial_nos_after_submit"
+	},
 }
 
 # Scheduled Tasks
@@ -165,9 +173,9 @@ doc_events = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "erpgold.event.get_events"
-# }
+override_whitelisted_methods = {
+	"erpnext.stock.utils.scan_barcode": "erpgold.barcode.custom_scan_barcode"
+}
 # override_update_serial_nos_after_submit_method={
 #     "erpnext.update_serial_nos_after_submit_method"="erpgold.barcode.generate_serial_no"
 # }

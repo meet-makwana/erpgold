@@ -22,6 +22,11 @@ class StockAudit(Document):
         
     def validate(self):
         # Check if all items in the stock item table have been checked
-        all_checked = all(row.item_checked == 1 for row in self.get('stock_item'))
-        if not all_checked:
-            frappe.throw('Please check all items before submitting.', title='Error')
+        # all_checked = all(row.item_checked == 1 for row in self.get('stock_item'))
+        # if not all_checked:
+        #     frappe.throw('Please check all items before submitting.', title='Error')
+        stock_items = self.get('stock_item')
+        for row in stock_items:
+            if row.item_checked != 1:
+                frappe.throw('Please check all items before submitting.', title='Error')
+                return

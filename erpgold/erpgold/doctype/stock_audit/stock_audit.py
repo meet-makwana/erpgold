@@ -1,20 +1,27 @@
-# Copyright (c) 2024, Meet Makwana and contributors
-# For license information, please see license.txt
-
+# custom_app/custom_module/custom_script.py
 import frappe
 from frappe.model.document import Document
 
 class StockAudit(Document):
-     pass
-
-
-
-# @frappe.whitelist()
-# def fetchvalue(doc_no):
-#         stock_entry = frappe.db.get_all("Stock Entry Detail", filters={"parent": doc_no}, fields=["custom_size","custom_metal_type","custom_purity","custom_purity_percentage","custom_gross_weight","custom_less_weight","custom_net_weight","custom_fine_weight","custom_gold_rate","custom_gold_value","custom_mrp_rate","custom_other_amount","custom_sales_labour_type","custom_value_added","custom_sales_labour_amount","custom_is_jewellery_item"])
-#         if stock_entry:
-#             return stock_entry
+    
+   
+    @frappe.whitelist()
+    def get_serial_numbers(self):
+        self.total_items_in_stock = frappe.db.count('Serial No', {'status': 'Active'})
+        serial_numbers = frappe.get_all('Serial No', filters={'status': 'Active'}, fields=['name', 'item_code'])
+        return serial_numbers
+    
+    @frappe.whitelist()
+    def get_serial_numbers_2(self, scanned_serial_no):
+        serial_number = frappe.get_all('Serial No', filters={ 'name': scanned_serial_no}, fields=['name', 'item_code','status'])
+        if serial_number:
+            return serial_number
+        else:
+           frappe.msgprint('Cannot find item with this barcode', indicator='red', alert=True)
+           return False
         
-#         purchase_receipt = frappe.db.get_all("Purchase Receipt Item", filters={"parent": doc_no}, fields=["custom_size","custom_metal_type","custom_purity","custom_purity_percentage","custom_gross_weight","custom_less_weight","custom_net_weight","custom_fine_weight","custom_westage","custom_gold_rate","custom_gold_value","custom_mrp_rate","custom_other_amount","custom_sales_labour_type","custom_value_added","custom_sales_labour_amount","custom_is_jewellery_item"])
-#         if purchase_receipt:
-#             return purchase_receipt
+    def validate(self):
+        # Check if all items in the stock item table have been checked
+        all_checked = all(row.item_checked == 1 for row in self.get('stock_item'))
+        if not all_checked:
+            frappe.throw('Please check all items before submitting.', title='Error')

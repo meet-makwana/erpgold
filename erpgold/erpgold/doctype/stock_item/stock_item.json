@@ -3,7 +3,6 @@
  "allow_rename": 1,
  "creation": "2024-03-01 10:35:42.654225",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "serial_no",
@@ -42,7 +41,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-04-11 12:13:13.494336",
+ "modified": "2024-04-12 15:06:26.148499",
  "modified_by": "Administrator",
  "module": "ERPGold",
  "name": "Stock Item",

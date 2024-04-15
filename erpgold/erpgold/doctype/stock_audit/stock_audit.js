@@ -6,6 +6,7 @@ frappe.ui.form.on('Stock Audit', {
             method: 'get_serial_numbers',
             callback: function(response) {
                 if (response.message) {
+                    frm.clear_table('stock_item');
                     response.message.forEach(function(serial) {
                         var row = frappe.model.add_child(frm.doc, 'Stock Item', 'stock_item');
                         row.serial_no = serial.name;
@@ -82,7 +83,9 @@ frappe.ui.form.on('Stock Audit', {
                                     
                                 } else if (serial.status === 'Inactive') {
                                     // If status is 'Inactive', increment total_not_found_items
-                                    frm.set_value('total_not_found_items', frm.doc.total_not_found_items + 1);
+                                    var total_not_found_items = frm.doc.total_not_found_items || 0;
+                                    frm.set_value('total_not_found_items', total_not_found_items + 1);
+                                    //frm.set_value('total_not_found_items', frm.doc.total_not_found_items + 1);
                                     frappe.show_alert({
                                         message:__('Item Not Found'),
                                         indicator:'red'
